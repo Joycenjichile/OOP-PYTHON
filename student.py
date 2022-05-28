@@ -1,8 +1,8 @@
 # class Student:
-#     name="Effence"
-#     country="kenya"
-#     age=20
-#     school="Akirachix"
+#       name="Effence"
+#       country="kenya"
+#       age=20
+#       school="Akirachix"
 class Student:
     school="Akirachix"
     def __init__(self,first_name,last_name,age,country):
