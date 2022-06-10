@@ -1,21 +1,70 @@
-import re
+from unicodedata import name
 
-
+from fruit import deposit
 class Account:
-    def __init__(self,balance,accountnumber):
-        self.balance=balance
-        self.accountnumber=accountnumber
-    def deposit(self,amount):
-        self.amount=amount
-        self.balance+=amount
-        return self.balance
-        return f"my deposit is{amount} on the account {self.account_number}. The balance is{self.balance} "
-    def withdraw(self,amount):
-        self.amount=amount
-        self.withdraw-=amount
-        return self.amount
-        return f"my withdraw is{amount} on the account {self.account_number}.The balance is{self.balance}"
-        
-    
+    def __init__(self,account_name,account_number):
+        self.account_name= account_name
+        self.account_number=account_number
+        self.balance=0
+        self.deposits=[]
+        self.withdrawals=[]
 
+    def deposit(self,amount):
+        if amount<=0:
+            return f"deposit amount must be greater than zero"
+        else:
+            self.balance+=amount
+            return f"{self.balance}"
+            self.deposits.append(amount)
+            return f"you have deposited{amount}your new balance is{self.balance},self.deposits"
+       
+    def withdraw(self,amount):
+        if amount >self.balance:
+            return f"sinsuficient fund"
+        elif amount<=0:
+            return f"amount must be greater than zero"
+        else:
+            self.withdrawals-=amount 
+            return f"hello {self.account_number} you have withdrawn {amount} your balance is {self.balance}"
+            self.withdrawals.append (amount)
+            return f"you have withdraw {amount}your new balance is {self.balance},self.withrawals" 
+
+    def deposit_statement(self):
+        print(*self.deposits,sep="\n")
+
+    def withdraw_statement(self):
+        print(*self.deposits,self="\m")
+
+
+       
+    def __init__(self,first_name,last_name,age,country):
+           self.first_name=first_name
+           self.self_name=last_name
+           self.age=age
+           self.country=country
+    def greeting(self):
+         return f"hello {self.first_name} from {self.country} welcome to {self.school}"
+    def full_name(self):
+        return f"my name is {self.first_name} {self.last_name}"
+    def year_of_birth(self):
+        return 2022-self.age
+    def initials(self):
+        return f"my initials{self.first_name[0]} {self.last_name[0]}"
+
+#  Add a new attribute to the class Account called deposits which by default is an empty list.
+# Add another attribute to the class Account called withdrawals which by default is an empty list.
+# Modify the deposit method to append each successful deposit to self.deposits
+# Modify the withdrawal method to append each successful withdrawal to self.withdrawals
+# Add a new method called deposits_statement which using a for loop prints each deposit in a new line
+# Add a new method called withdrawals_statement which using a for loop prints each withdrawal in a new line
+# Modify the withdrawal method to include a transaction fee of 100 per transaction.
+# Add a method to show the current balance.
+        
+        
+# Add these methods to class student - full_name, year_of_birth, initials. Create two instances and verify the work as expected
+# Add these methods to class Account - deposit, withdraw. Create two instances of account and verify they work as expected.
+    
+# condition for withdrawal to be seccessful
+# reguested amount must be greater than current balance
+# //         //                      //       zero
     
