@@ -82,7 +82,7 @@ class Account:
 
         else:
             self.loan+=amount
-            return f"Dear customer {self.accname} your loan of ksh{amount} has been granted successfully"
+            return f"Dear customer {self.accountname} your loan of ksh{amount} has been granted successfully"
 
     def loan_repay(self,amount):
         if amount<self.loan:
@@ -97,9 +97,9 @@ class Account:
         fee= amount*0.05
         Total=fee+amount
         if amount<0:
-            return f"Dear customer {self.accname} your amount is too low"
+            return f"Dear customer {self.accountname} your amount is too low"
         elif Total>self.balance:
-            return f"Dear customer {self.accname} you balance is {self.balance} and you need atleast {Total}"
+            return f"Dear customer {self.accountname} you balance is {self.balance} and you need atleast {Total}"
         else:
             self.balance-=Total
             return f"Dear customer you  have sent {amount} to {account} and your new balance is {self.balance}"
